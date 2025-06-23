@@ -4,7 +4,6 @@ import { motion } from 'framer-motion';
 import { ArrowRight, Star, Users, Calendar, Shield, Zap, Heart, Sparkles, Play, Music, Mic, Camera, Palette, Volume2 } from 'lucide-react';
 import { artistCategories } from '../data/mockData';
 import { Card, CardContent } from '../components/ui/Card';
-import Button from '../components/ui/Button';
 import { useAppContext } from '../App';
 
 const Home = () => {
@@ -197,30 +196,22 @@ const Home = () => {
                     whileHover={{ rotate: 0, scale: 1.05 }}
                     className="transform -rotate-3"
                   >
-                    <Button 
-                      size="xl" 
-                      className="bg-gradient-to-r from-pink-500 via-red-500 to-orange-500 hover:from-pink-600 hover:via-red-600 hover:to-orange-600 text-white font-black px-10 py-5 rounded-full shadow-2xl text-lg border-4 border-white/30"
-                      asChild
-                    >
-                      <Link to="/artists">
-                        🚀 EXPLORE CHAOS
-                      </Link>
-                    </Button>
+                    <Link to="/artists" className="block">
+                      <button className="w-full bg-gradient-to-r from-pink-500 via-red-500 to-orange-500 hover:from-pink-600 hover:via-red-600 hover:to-orange-600 text-white font-black px-10 py-5 rounded-full shadow-2xl text-lg border-4 border-white/30 transition-all duration-300">
+                        🎭 FIND ARTISTS
+                      </button>
+                    </Link>
                   </motion.div>
                   
                   <motion.div
                     whileHover={{ rotate: 0, scale: 1.05 }}
                     className="transform rotate-2"
                   >
-                    <Button 
-                      size="xl" 
-                      className="bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white font-bold px-10 py-5 rounded-full shadow-2xl text-lg border-2 border-purple-300"
-                      asChild
-                    >
-                      <Link to="/onboard">
-                        ⭐ JOIN REVOLUTION
-                      </Link>
-                    </Button>
+                    <Link to="/onboard" className="block">
+                      <button className="w-full bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white font-bold px-10 py-5 rounded-full shadow-2xl text-lg border-2 border-purple-300 transition-all duration-300">
+                        ⭐ JOIN AS ARTIST
+                      </button>
+                    </Link>
                   </motion.div>
                 </div>
               </motion.div>
@@ -528,30 +519,22 @@ const Home = () => {
                 whileHover={{ rotate: 0, scale: 1.1 }}
                 className="transform -rotate-6"
               >
-                <Button 
-                  size="xl" 
-                  className="bg-white text-purple-600 hover:bg-yellow-300 hover:text-black font-black px-12 py-6 rounded-full shadow-2xl text-xl border-4 border-yellow-300"
-                  asChild
-                >
-                  <Link to="/artists">
+                <Link to="/artists" className="block">
+                  <button className="bg-white text-purple-600 hover:bg-yellow-300 hover:text-black font-black px-12 py-6 rounded-full shadow-2xl text-xl border-4 border-yellow-300 transition-all duration-300">
                     🎪 FIND ARTISTS
-                  </Link>
-                </Button>
+                  </button>
+                </Link>
               </motion.div>
               
               <motion.div
                 whileHover={{ rotate: 0, scale: 1.1 }}
                 className="transform rotate-8"
               >
-                <Button 
-                  size="xl" 
-                  className="bg-black/50 backdrop-blur-md text-white hover:bg-white hover:text-black font-black px-12 py-6 rounded-full border-4 border-white shadow-2xl text-xl"
-                  asChild
-                >
-                  <Link to="/onboard">
+                <Link to="/onboard" className="block">
+                  <button className="bg-black/50 backdrop-blur-md text-white hover:bg-white hover:text-black font-black px-12 py-6 rounded-full border-4 border-white shadow-2xl text-xl transition-all duration-300">
                     ⭐ BE ARTIST
-                  </Link>
-                </Button>
+                  </button>
+                </Link>
               </motion.div>
             </div>
 
