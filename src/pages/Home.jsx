@@ -156,7 +156,7 @@ const Home = () => {
                       className="block text-6xl sm:text-7xl lg:text-8xl font-black bg-gradient-to-r from-yellow-300 via-pink-300 to-cyan-300 bg-clip-text text-transparent transform rotate-3 my-4"
                       whileHover={{ rotate: -3, scale: 1.1 }}
                     >
-                      WILD
+                      YOUR
                     </motion.span>
                     
                     <motion.span 
@@ -171,7 +171,7 @@ const Home = () => {
                   
                   {/* Decorative text behind */}
                   <div className="absolute -top-8 -left-8 text-9xl font-black text-white/10 select-none transform rotate-45">
-                    ★
+                    
                   </div>
                 </div>
 
