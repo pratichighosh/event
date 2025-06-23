@@ -7,22 +7,23 @@
   "keywords": ["react", "vite", "tailwind", "artist", "booking", "platform"],
   "author": "Artistly Team",
   "license": "MIT",
-  "homepage": "https://artistly.vercel.app",
+  "homepage": "https://artistly-events.vercel.app",
   "repository": {
     "type": "git",
-    "url": "https://github.com/artistly/artistly-app.git"
+    "url": "https://github.com/pratichighosh/event.git"
   },
   "bugs": {
-    "url": "https://github.com/artistly/artistly-app/issues"
+    "url": "https://github.com/pratichighosh/event/issues"
   },
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --host",
     "build": "vite build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview",
+    "preview": "vite preview --host",
     "test": "vitest",
     "test:ui": "vitest --ui",
-    "coverage": "vitest run --coverage"
+    "coverage": "vitest run --coverage",
+    "postbuild": "echo 'Build completed successfully'"
   },
   "dependencies": {
     "react": "^18.2.0",
@@ -44,7 +45,7 @@
     "tailwindcss": "^3.3.6",
     "postcss": "^8.4.32",
     "autoprefixer": "^10.4.16",
-    "eslint": "^8.53.0",
+    "eslint": "^9.0.0",
     "eslint-plugin-react": "^7.33.2",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.4",
@@ -54,7 +55,7 @@
     "jsdom": "^23.0.1"
   },
   "engines": {
-    "node": ">=16.0.0",
+    "node": ">=18.0.0",
     "npm": ">=8.0.0"
   },
   "browserslist": {
@@ -68,5 +69,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "overrides": {
+    "eslint": "^9.0.0"
   }
 }
