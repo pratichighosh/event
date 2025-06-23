@@ -1,0 +1,498 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply transition-colors duration-300;
+  }
+  
+  html {
+    @apply scroll-smooth;
+    /* Prevent horizontal scroll on mobile */
+    overflow-x: hidden;
+  }
+  
+  body {
+    @apply font-sans transition-all duration-300;
+    font-feature-settings: "rlig" 1, "calt" 1;
+    /* Prevent horizontal scroll */
+    overflow-x: hidden;
+    /* Better text rendering on mobile */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  /* Light theme - bright backgrounds with DARK text */
+  .light body {
+    @apply bg-white text-gray-900;
+  }
+  
+  .light {
+    color-scheme: light;
+  }
+  
+  /* Dark theme */
+  .dark body {
+    @apply bg-gray-900 text-white;
+  }
+  
+  .dark {
+    color-scheme: dark;
+  }
+
+  /* Ensure all text is dark in light mode */
+  .light h1, .light h2, .light h3, .light h4, .light h5, .light h6 {
+    @apply text-gray-900;
+  }
+
+  .light p, .light span, .light div {
+    @apply text-gray-800;
+  }
+
+  .light .text-primary {
+    @apply text-gray-900;
+  }
+
+  .light .text-secondary {
+    @apply text-gray-700;
+  }
+
+  .light .text-muted {
+    @apply text-gray-600;
+  }
+
+  /* Dark theme text colors */
+  .dark .text-primary {
+    @apply text-blue-400;
+  }
+
+  .dark .text-secondary {
+    @apply text-gray-300;
+  }
+
+  .dark .text-muted {
+    @apply text-gray-400;
+  }
+
+  /* Mobile-first responsive typography */
+  h1 {
+    @apply text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl;
+  }
+
+  h2 {
+    @apply text-xl sm:text-2xl md:text-3xl lg:text-4xl;
+  }
+
+  h3 {
+    @apply text-lg sm:text-xl md:text-2xl;
+  }
+
+  h4 {
+    @apply text-base sm:text-lg md:text-xl;
+  }
+
+  p {
+    @apply text-sm sm:text-base;
+  }
+
+  /* Responsive container */
+  .container-responsive {
+    @apply w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+}
+
+@layer components {
+  /* Light theme glass effect - bright and clean with dark text */
+  .light .glass {
+    @apply bg-white/90 backdrop-blur-md border border-gray-200/50 shadow-lg text-gray-900;
+  }
+  
+  /* Dark theme glass effect */
+  .dark .glass {
+    @apply bg-gray-800/20 backdrop-blur-md border border-gray-700/30 text-white;
+  }
+  
+  .gradient-text {
+    @apply bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent;
+  }
+  
+  .dark .gradient-text {
+    @apply bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent;
+  }
+  
+  .hero-gradient {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #f5576c 75%, #4facfe 100%);
+    background-size: 300% 300%;
+    animation: gradient 8s ease infinite;
+  }
+  
+  /* Responsive grid layouts */
+  .grid-responsive-1 {
+    @apply grid grid-cols-1;
+  }
+
+  .grid-responsive-2 {
+    @apply grid grid-cols-1 sm:grid-cols-2;
+  }
+
+  .grid-responsive-3 {
+    @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3;
+  }
+
+  .grid-responsive-4 {
+    @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4;
+  }
+
+  .grid-responsive-6 {
+    @apply grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6;
+  }
+
+  /* Responsive spacing */
+  .section-padding {
+    @apply py-8 sm:py-12 md:py-16 lg:py-20;
+  }
+
+  .card-padding {
+    @apply p-4 sm:p-6 lg:p-8;
+  }
+
+  /* Responsive text sizes */
+  .text-hero {
+    @apply text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl;
+  }
+
+  .text-title {
+    @apply text-2xl sm:text-3xl md:text-4xl lg:text-5xl;
+  }
+
+  .text-subtitle {
+    @apply text-lg sm:text-xl md:text-2xl;
+  }
+
+  .text-body {
+    @apply text-sm sm:text-base md:text-lg;
+  }
+
+  .text-caption {
+    @apply text-xs sm:text-sm;
+  }
+
+  /* Mobile-optimized buttons */
+  .btn-mobile {
+    @apply w-full sm:w-auto min-h-[44px] px-4 py-2 sm:px-6 sm:py-3;
+  }
+
+  /* Touch-friendly interactive elements */
+  .touch-target {
+    @apply min-h-[44px] min-w-[44px] flex items-center justify-center;
+  }
+
+  /* Responsive cards */
+  .card-responsive {
+    @apply rounded-lg border shadow-sm transition-all duration-300;
+    @apply hover:shadow-lg hover:scale-[1.02];
+    @apply active:scale-[0.98] active:shadow-sm;
+  }
+
+  /* Light theme backgrounds - bright and colorful */
+  .light .page-gradient {
+    background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 25%, #f3e8ff 50%, #fef3c7 75%, #fef7ed 100%);
+  }
+  
+  /* Dark theme backgrounds */
+  .dark .page-gradient {
+    background: linear-gradient(135deg, #1e293b 0%, #374151 25%, #4c1d95 50%, #7c2d12 75%, #1f2937 100%);
+  }
+  
+  /* Card backgrounds for light theme - bright white with dark text */
+  .light .card-bg {
+    @apply bg-white shadow-sm border border-gray-200 text-gray-900;
+  }
+  
+  /* Card backgrounds for dark theme */
+  .dark .card-bg {
+    @apply bg-gray-800 shadow-lg border border-gray-700 text-white;
+  }
+
+  /* Mobile navigation */
+  .mobile-nav {
+    @apply fixed inset-x-0 top-16 z-40 bg-white/95 dark:bg-gray-900/95 backdrop-blur-md;
+    @apply border-t border-gray-200 dark:border-gray-700;
+    @apply transform transition-transform duration-300 ease-in-out;
+  }
+
+  .mobile-nav.closed {
+    @apply -translate-y-full opacity-0 pointer-events-none;
+  }
+
+  .mobile-nav.open {
+    @apply translate-y-0 opacity-100 pointer-events-auto;
+  }
+
+  /* Responsive modal */
+  .modal-responsive {
+    @apply fixed inset-0 z-50 overflow-y-auto;
+    @apply flex min-h-screen items-center justify-center;
+    @apply p-4 sm:p-6 lg:p-8;
+  }
+
+  .modal-content {
+    @apply w-full max-w-md sm:max-w-lg md:max-w-xl lg:max-w-2xl;
+    @apply max-h-[90vh] overflow-y-auto;
+  }
+
+  /* Force dark text in light mode for better readability */
+  .light * {
+    color: inherit;
+  }
+
+  .light h1, .light h2, .light h3, .light h4, .light h5, .light h6 {
+    @apply text-gray-900 !important;
+  }
+
+  .light p:not(.text-white):not(.gradient-text) {
+    @apply text-gray-800 !important;
+  }
+
+  .light span:not(.text-white):not(.gradient-text) {
+    @apply text-gray-700 !important;
+  }
+
+  .light div:not(.text-white):not(.gradient-text) {
+    @apply text-gray-800;
+  }
+
+  /* Responsive form elements */
+  .form-responsive {
+    @apply w-full space-y-4 sm:space-y-6;
+  }
+
+  .form-group-responsive {
+    @apply grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6;
+  }
+
+  .input-responsive {
+    @apply w-full min-h-[44px] px-3 py-2 sm:px-4 sm:py-3;
+    @apply text-base sm:text-sm; /* Prevent zoom on mobile */
+  }
+
+  /* Responsive image containers */
+  .image-responsive {
+    @apply relative overflow-hidden;
+    @apply aspect-w-16 aspect-h-9 sm:aspect-w-4 sm:aspect-h-3;
+  }
+
+  .image-responsive img {
+    @apply absolute inset-0 w-full h-full object-cover;
+  }
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Float animation for hero section */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Custom scrollbar for all devices */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.light ::-webkit-scrollbar-track {
+  @apply bg-gray-100;
+}
+
+.light ::-webkit-scrollbar-thumb {
+  @apply bg-gray-400 rounded;
+}
+
+.light ::-webkit-scrollbar-thumb:hover {
+  @apply bg-gray-500;
+}
+
+.dark ::-webkit-scrollbar-track {
+  @apply bg-gray-800;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  @apply bg-gray-600 rounded;
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  @apply bg-gray-500;
+}
+
+/* Loading animation - mobile optimized */
+.loading-dots {
+  display: inline-block;
+  position: relative;
+  width: 60px;
+  height: 60px;
+}
+
+.loading-dots div {
+  position: absolute;
+  top: 27px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: currentColor;
+  animation-timing-function: cubic-bezier(0, 1, 1, 0);
+}
+
+.loading-dots div:nth-child(1) {
+  left: 6px;
+  animation: loading-dots1 0.6s infinite;
+}
+
+.loading-dots div:nth-child(2) {
+  left: 6px;
+  animation: loading-dots2 0.6s infinite;
+}
+
+.loading-dots div:nth-child(3) {
+  left: 26px;
+  animation: loading-dots2 0.6s infinite;
+}
+
+.loading-dots div:nth-child(4) {
+  left: 45px;
+  animation: loading-dots3 0.6s infinite;
+}
+
+@keyframes loading-dots1 {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes loading-dots3 {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0);
+  }
+}
+
+@keyframes loading-dots2 {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(19px, 0);
+  }
+}
+
+/* Mobile-specific optimizations */
+@media (max-width: 640px) {
+  /* Improve tap targets */
+  button, a, input, select, textarea {
+    @apply min-h-[44px];
+  }
+
+  /* Better mobile typography */
+  .text-mobile-hero {
+    @apply text-2xl leading-tight;
+  }
+
+  .text-mobile-title {
+    @apply text-xl leading-snug;
+  }
+
+  /* Mobile padding */
+  .mobile-padding {
+    @apply px-4 py-6;
+  }
+
+  /* Mobile-friendly cards */
+  .card-mobile {
+    @apply rounded-lg mx-4 mb-4;
+  }
+
+  /* Stack elements on mobile */
+  .mobile-stack {
+    @apply flex flex-col space-y-4;
+  }
+}
+
+/* Tablet optimizations */
+@media (min-width: 641px) and (max-width: 1024px) {
+  .tablet-grid-2 {
+    @apply grid grid-cols-2 gap-4;
+  }
+
+  .tablet-grid-3 {
+    @apply grid grid-cols-3 gap-6;
+  }
+}
+
+/* Desktop optimizations */
+@media (min-width: 1025px) {
+  .desktop-grid-4 {
+    @apply grid grid-cols-4 gap-8;
+  }
+
+  .desktop-padding {
+    @apply px-8 py-12;
+  }
+}
+
+/* Focus styles for accessibility - mobile friendly */
+.focus\:ring-primary-500:focus {
+  @apply ring-2 ring-blue-500 ring-offset-2;
+}
+
+.light .focus\:ring-primary-500:focus {
+  @apply ring-offset-white;
+}
+
+.dark .focus\:ring-primary-500:focus {
+  @apply ring-offset-gray-900;
+}
+
+/* Selection styles */
+.light ::selection {
+  @apply bg-blue-200 text-blue-900;
+}
+
+.dark ::selection {
+  @apply bg-blue-900 text-blue-100;
+}
+
+/* Print styles */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  
+  body {
+    @apply text-black bg-white;
+  }
+}
